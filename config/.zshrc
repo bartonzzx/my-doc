@@ -113,7 +113,12 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-#add cuda path
+# add cuda path
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-13.0/lib64
 export PATH=$PATH:/usr/local/cuda-13.0/bin
 export CUDA_HOME=$CUDA_HOME:/usr/local/cuda-13.0
+
+# start tmux when login with ssh
+if [[ $- =~ i ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_TTY" ]]; then
+  tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+fi
