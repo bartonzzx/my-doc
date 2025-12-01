@@ -125,3 +125,7 @@ fi
 
 # add nvim
 export PATH=$PATH:/home/barton/.local/application/nvim-linux-x86_64/bin
+
+# add ssh agent config
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/barton_zhang
