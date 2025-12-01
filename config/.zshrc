@@ -122,3 +122,6 @@ export CUDA_HOME=$CUDA_HOME:/usr/local/cuda-13.0
 if [[ $- =~ i ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_TTY" ]]; then
   tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
 fi
+
+# add nvim
+export PATH=$PATH:/home/barton/.local/application/nvim-linux-x86_64/bin
